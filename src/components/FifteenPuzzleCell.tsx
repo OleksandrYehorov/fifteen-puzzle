@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export interface CellCoordinates {
   row: number;
@@ -13,7 +13,7 @@ export interface Cell {
 
 interface Props {
   cell: Cell;
-  onClick?: (cell: Cell) => void;
+  onClick?: (cellValue: number) => void;
 }
 
 interface CellProps {
@@ -30,6 +30,7 @@ const Cell = styled.li<CellProps>`
   top: ${({ coordinates }) => coordinates.row * 25}%;
   left: ${({ coordinates }) => coordinates.col * 25}%;
   transition: top 0.5s ease-out, left 0.5s ease-out;
+  -webkit-tap-highlight-color: transparent;
 `;
 
 const CellContent = styled.div`
@@ -48,7 +49,7 @@ const CellValue = styled.span`
 
 export const FifteenPuzzleCell: React.FC<Props> = ({ cell, onClick }) => {
   const handleClick = () => {
-    if (onClick) onClick(cell);
+    if (onClick) onClick(cell.value);
   };
 
   if (cell.value === 16) {
