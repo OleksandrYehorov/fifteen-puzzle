@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/fifteen-puzzle/static/css/main.ebf363f5.chunk.css",
-    "main.js": "/fifteen-puzzle/static/js/main.0ec5b969.chunk.js",
-    "main.js.map": "/fifteen-puzzle/static/js/main.0ec5b969.chunk.js.map",
+    "main.js": "/fifteen-puzzle/static/js/main.ab11a28d.chunk.js",
+    "main.js.map": "/fifteen-puzzle/static/js/main.ab11a28d.chunk.js.map",
     "runtime-main.js": "/fifteen-puzzle/static/js/runtime-main.133d7edd.js",
     "runtime-main.js.map": "/fifteen-puzzle/static/js/runtime-main.133d7edd.js.map",
-    "static/js/2.457f1295.chunk.js": "/fifteen-puzzle/static/js/2.457f1295.chunk.js",
-    "static/js/2.457f1295.chunk.js.map": "/fifteen-puzzle/static/js/2.457f1295.chunk.js.map",
+    "static/js/2.6fafae2c.chunk.js": "/fifteen-puzzle/static/js/2.6fafae2c.chunk.js",
+    "static/js/2.6fafae2c.chunk.js.map": "/fifteen-puzzle/static/js/2.6fafae2c.chunk.js.map",
     "index.html": "/fifteen-puzzle/index.html",
-    "precache-manifest.10b4af40b736c78306141e0f99ba9087.js": "/fifteen-puzzle/precache-manifest.10b4af40b736c78306141e0f99ba9087.js",
+    "precache-manifest.239a98cc61ef2036f319211049bee29d.js": "/fifteen-puzzle/precache-manifest.239a98cc61ef2036f319211049bee29d.js",
     "service-worker.js": "/fifteen-puzzle/service-worker.js",
     "static/css/main.ebf363f5.chunk.css.map": "/fifteen-puzzle/static/css/main.ebf363f5.chunk.css.map",
-    "static/js/2.457f1295.chunk.js.LICENSE.txt": "/fifteen-puzzle/static/js/2.457f1295.chunk.js.LICENSE.txt"
+    "static/js/2.6fafae2c.chunk.js.LICENSE.txt": "/fifteen-puzzle/static/js/2.6fafae2c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.133d7edd.js",
-    "static/js/2.457f1295.chunk.js",
+    "static/js/2.6fafae2c.chunk.js",
     "static/css/main.ebf363f5.chunk.css",
-    "static/js/main.0ec5b969.chunk.js"
+    "static/js/main.ab11a28d.chunk.js"
   ]
 }
