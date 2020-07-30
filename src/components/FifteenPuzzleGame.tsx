@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { FifteenPuzzleCell } from './FifteenPuzzleCell';
 import styled from 'styled-components/macro';
-import { useFifteenPuzzleGame } from '../services/fifteen-puzzle-service';
+import { FifteenPuzzleCell } from './FifteenPuzzleCell';
+import { useGame } from '../hooks/useGame';
+import { ANIMATION_DURATION, vibrate } from '../utils';
 
 const Game = styled.div`
   width: 100%;
@@ -41,7 +42,7 @@ const Board = styled.ul<BoardProps>`
   background-color: rgb(82, 85, 91);
   border-radius: 0.5rem;
   user-select: none;
-  transition: 0.2s filter ease-in-out;
+  transition: ${ANIMATION_DURATION}ms filter ease-in-out;
   filter: blur(${(props) => (props.isWin ? 0.2 : 0)}rem);
 `;
 
@@ -68,15 +69,25 @@ const BoardLabel = styled.h2`
   font-size: 2.4rem;
 `;
 
-export const FifteenPuzzle: React.FC = () => {
-  const game = useFifteenPuzzleGame();
+const Header = styled.header`
+  flex-grow: 1;
+`;
+
+const Footer = styled.footer`
+  flex-grow: 1;
+`;
+
+const moveVibrationPattern = [50, ANIMATION_DURATION, 50];
+
+export const FifteenPuzzleGame: React.FC = () => {
+  const game = useGame();
   const [cellsData, setCellsData] = useState(game.cells);
   const [isWin, setIsWin] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
 
   const handleCellClick = (clickedCellValue: number) => {
-    const success = game.makeMove(clickedCellValue);
-    if (success) {
+    if (game.makeMove(clickedCellValue)) {
+      vibrate(moveVibrationPattern);
       setCellsData(game.cells);
       setIsWin(game.checkWin());
     }
@@ -93,9 +104,10 @@ export const FifteenPuzzle: React.FC = () => {
   }, [isWin]);
 
   const handleStartGame = () => {
-    const shuffleIntervals = [0, 300, 600, 900];
+    const shuffleIntervals = [0, 300, 600];
     const shuffle = () => {
       game.shuffle();
+      vibrate(moveVibrationPattern);
       setCellsData(game.cells);
     };
 
@@ -110,7 +122,7 @@ export const FifteenPuzzle: React.FC = () => {
 
   return (
     <Game>
-      <header style={{ flexGrow: 1 }}></header>
+      <Header></Header>
       <BoardWrapper>
         <Board isWin={isWin}>
           {cellsData.map((cellData) => (
@@ -123,9 +135,9 @@ export const FifteenPuzzle: React.FC = () => {
         </Board>
         {isWin && <BoardLabel>WIN</BoardLabel>}
       </BoardWrapper>
-      <footer style={{ flexGrow: 1 }}>
+      <Footer>
         <Button onClick={handleStartGame}>{startButtonText}</Button>
-      </footer>
+      </Footer>
     </Game>
   );
 };

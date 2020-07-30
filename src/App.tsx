@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-
-import { FifteenPuzzle } from './components/FifteenPuzzle';
+import { FifteenPuzzleGame } from './components/FifteenPuzzleGame';
 
 const Main = styled.main`
   height: 100%;
@@ -16,7 +15,7 @@ const Main = styled.main`
 export const App = () => {
   return (
     <Main>
-      <FifteenPuzzle />
+      <FifteenPuzzleGame />
     </Main>
   );
 };

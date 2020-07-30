@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-export interface CellCoordinates {
+export interface Coordinates {
   row: number;
   col: number;
 }
 
 export interface Cell {
   value: number;
-  coordinates: CellCoordinates;
+  coordinates: Coordinates;
 }
 
 interface Props {
@@ -17,7 +17,7 @@ interface Props {
 }
 
 interface CellProps {
-  coordinates: CellCoordinates;
+  coordinates: Coordinates;
 }
 
 const Cell = styled.li<CellProps>`
@@ -48,10 +48,6 @@ const CellValue = styled.span`
 `;
 
 export const FifteenPuzzleCell: React.FC<Props> = ({ cell, onClick }) => {
-  const handleClick = () => {
-    if (onClick) onClick(cell.value);
-  };
-
   if (cell.value === 16) {
     return null;
   }
@@ -59,7 +55,9 @@ export const FifteenPuzzleCell: React.FC<Props> = ({ cell, onClick }) => {
   return (
     <Cell
       coordinates={cell.coordinates}
-      onClick={handleClick}
+      onClick={() => {
+        if (onClick) onClick(cell.value);
+      }}
       style={cell.value === 16 ? { opacity: 0.5 } : undefined}
     >
       <CellContent>

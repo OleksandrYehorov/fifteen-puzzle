@@ -1,9 +1,9 @@
-import { Cell, CellCoordinates } from '../components/FifteenPuzzleCell';
-import { useRef } from 'react';
+import { Cell, Coordinates } from '../components/FifteenPuzzleCell';
+import { randomInteger } from '../utils/randomInteger';
 
 export type Side = 'top' | 'bottom' | 'left' | 'right';
 
-export class FifteenPuzzleService {
+export class FifteenPuzzle {
   static getCellPosition(cell: Cell) {
     return cell.coordinates.row * 4 + cell.coordinates.col;
   }
@@ -69,7 +69,7 @@ export class FifteenPuzzleService {
     const clickSide = this.getMoveSide(clickedCell, emptyCell);
     if (!clickSide) return false;
 
-    const newEmptyCellCoordinates: CellCoordinates = {
+    const newEmptyCellCoordinates: Coordinates = {
       ...clickedCell.coordinates,
     };
 
@@ -130,12 +130,12 @@ export class FifteenPuzzleService {
     const emptyCell = this.getEmptyCell();
     if (!emptyCell) return false;
 
-    const emptyCellPosition = FifteenPuzzleService.getCellPosition(emptyCell);
+    const emptyCellPosition = FifteenPuzzle.getCellPosition(emptyCell);
 
     const isWin = this.cellsData
       .filter((cell) => cell.value !== 16)
       .every((cell, index) => {
-        let position = FifteenPuzzleService.getCellPosition(cell);
+        let position = FifteenPuzzle.getCellPosition(cell);
         if (position > emptyCellPosition) position--;
 
         return position === index;
@@ -145,22 +145,14 @@ export class FifteenPuzzleService {
   }
 
   shuffle(): void {
-    const movesAmount = randomInteger(30, 60);
-    let i = 0;
+    do {
+      const movesAmount = randomInteger(50, 100);
+      let i = 0;
 
-    while (i < movesAmount) {
-      if (this.makeMove(randomInteger(1, 15))) i++;
-    }
+      while (i < movesAmount) {
+        const cellToMove = randomInteger(1, 15);
+        if (this.makeMove(cellToMove)) i++;
+      }
+    } while (this.checkWin());
   }
-}
-
-function randomInteger(min: number, max: number): number {
-  let rand = min + Math.random() * (max + 1 - min);
-  return Math.floor(rand);
-}
-
-export function useFifteenPuzzleGame(): FifteenPuzzleService {
-  const gameRef = useRef(new FifteenPuzzleService());
-
-  return gameRef.current;
 }
