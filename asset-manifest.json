@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/fifteen-puzzle/static/css/main.ebf363f5.chunk.css",
-    "main.js": "/fifteen-puzzle/static/js/main.ab11a28d.chunk.js",
-    "main.js.map": "/fifteen-puzzle/static/js/main.ab11a28d.chunk.js.map",
+    "main.js": "/fifteen-puzzle/static/js/main.77e5fe14.chunk.js",
+    "main.js.map": "/fifteen-puzzle/static/js/main.77e5fe14.chunk.js.map",
     "runtime-main.js": "/fifteen-puzzle/static/js/runtime-main.133d7edd.js",
     "runtime-main.js.map": "/fifteen-puzzle/static/js/runtime-main.133d7edd.js.map",
     "static/js/2.6fafae2c.chunk.js": "/fifteen-puzzle/static/js/2.6fafae2c.chunk.js",
     "static/js/2.6fafae2c.chunk.js.map": "/fifteen-puzzle/static/js/2.6fafae2c.chunk.js.map",
     "index.html": "/fifteen-puzzle/index.html",
-    "precache-manifest.239a98cc61ef2036f319211049bee29d.js": "/fifteen-puzzle/precache-manifest.239a98cc61ef2036f319211049bee29d.js",
+    "precache-manifest.4a66052bf719f54edba645447cadc01f.js": "/fifteen-puzzle/precache-manifest.4a66052bf719f54edba645447cadc01f.js",
     "service-worker.js": "/fifteen-puzzle/service-worker.js",
     "static/css/main.ebf363f5.chunk.css.map": "/fifteen-puzzle/static/css/main.ebf363f5.chunk.css.map",
     "static/js/2.6fafae2c.chunk.js.LICENSE.txt": "/fifteen-puzzle/static/js/2.6fafae2c.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.133d7edd.js",
     "static/js/2.6fafae2c.chunk.js",
     "static/css/main.ebf363f5.chunk.css",
-    "static/js/main.ab11a28d.chunk.js"
+    "static/js/main.77e5fe14.chunk.js"
   ]
 }
