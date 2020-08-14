@@ -71,10 +71,20 @@ const BoardLabel = styled.h2`
 
 const Header = styled.header`
   flex-grow: 1;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 `;
 
 const Footer = styled.footer`
   flex-grow: 1;
+  flex-shrink: 0;
+`;
+
+const Moves = styled.p`
+  font-size: 1.8rem;
+  margin-top: 0;
 `;
 
 const moveVibrationPattern = [50, ANIMATION_DURATION, 50];
@@ -84,12 +94,14 @@ export const FifteenPuzzleGame: React.FC = () => {
   const [cellsData, setCellsData] = useState(game.cells);
   const [isWin, setIsWin] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [moves, setMoves] = useState(0);
 
   const handleCellClick = (clickedCellValue: number) => {
     if (game.makeMove(clickedCellValue)) {
       vibrate(moveVibrationPattern);
       setCellsData(game.cells);
       setIsWin(game.checkWin());
+      setMoves((moves) => moves + 1);
     }
   };
 
@@ -113,6 +125,7 @@ export const FifteenPuzzleGame: React.FC = () => {
 
     setIsPlaying(true);
     setIsWin(false);
+    setMoves(0);
     shuffleIntervals.forEach((interval) => setTimeout(shuffle, interval));
   };
 
@@ -122,7 +135,9 @@ export const FifteenPuzzleGame: React.FC = () => {
 
   return (
     <Game>
-      <Header></Header>
+      <Header>
+        <Moves>Moves: {moves}</Moves>
+      </Header>
       <BoardWrapper>
         <Board isWin={isWin}>
           {cellsData.map((cellData) => (
